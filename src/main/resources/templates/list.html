@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+        layout:decorate="~{layouts/main}"
+>
+<body>
+    <div layout:fragment="content" th:remove="tag">
+        <table class="table table-hover thead-dark">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Android Studio</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
