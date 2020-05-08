@@ -1,10 +1,47 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
 </head>
 <body>
-    <h1 th:text="${hello}">Hello Spring Boot</h1>
+    <div class="container-fluid nav-category">
+        <form method="POST" th:action="@{/web}">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Name</span>
+                </div>
+                <input th:fields="*{name}" class="form-control" type="text" aria-describedby="basic-addon1">
+            </div>
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Url</span>
+                </div>
+                <input th:fields="*{url}" class="form-control" type="text">
+            </div>
+            <button class="btn btn-primary" type="submit">Add</button>
+        </form>
+    </div>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${items}">
+                <td><span th:text="${item.id}">Id</span></td>
+                <td><span><a th:text="${item.name}" th:href="${item.url}">Name</a></span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"/>
 </body>
 </html>

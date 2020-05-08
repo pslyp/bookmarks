@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("")
 public class DemoController {
 
-    @GetMapping(value = "")
+    @GetMapping(value = "/index")
     public String index(Model model) {
         String text = "Hello Eiei";
         model.addAttribute("hello", text);
